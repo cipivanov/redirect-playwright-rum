@@ -1,0 +1,19 @@
+{
+  "name": "redirect-playwright-rum",
+  "version": "1.0.0",
+  "description": "Reproduces a behaviour observed when testing pages with redirects with dd-trace",
+  "scripts": {
+    "pw:init": "npx playwright install-deps chromium && npx playwright install chromium",
+    "start": "pnpm http-server public -p 3000",
+    "test": "pnpm pw:init && DD_TRACE_DEBUG=true NODE_OPTIONS='-r dd-trace/ci/init' DD_TEST_SESSION_NAME=e2e-tests pnpm playwright test"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@playwright/test": "^1.51.1",
+    "@types/node": "^22.14.1",
+    "dd-trace": "^5.48.1",
+    "http-server": "^14.1.1"
+  }
+}
